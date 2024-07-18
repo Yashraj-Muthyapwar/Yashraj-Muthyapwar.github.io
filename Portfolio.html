@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Yashraj Muthyapwar, a Data Scientist based in Texas.">
+    <meta name="keywords" content="Data Scientist, Portfolio, Yashraj Muthyapwar, Texas, Machine Learning, MySQL, Python, Data Analysis, PowerBI, R">
+    <meta name="author" content="Yashraj Muthyapwar">
+    <title>Yashraj Muthyapwar - Data Scientist</title>
+    <link rel="icon" type="image/png" href="icons8-data-science-64.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="portfolio.css">
+</head>
+<body>
+
+<header>
+    <h1><i class="fas fa-rocket icon"></i>Yashraj Muthyapwar</h1>
+    <nav>
+        <a class="home-link" href=""><b>Home</b></a>
+        <a href="#work"><b>Work</b></a>
+        <a href="#contact"><b>Contact</b></a>
+        <a href="about.html"><b>About</b></a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div class="content">
+        <!-- <img src="https://cdn-icons-png.flaticon.com/512/4824/4824797.png" alt="Large Graphic" class="left-image" /> -->
+        <img src="data-science.jpg" alt="Large Graphic" class="left-image" />
+        <div class="text">
+            <h2>Hello!</h2>
+            <p class="bold-text">
+                <span class="line" id="line1"></span><br>
+                <span class="line" id="line2"></span><br>
+                <span class="line" id="line3" class="typing"></span>
+            </p>
+        </div>
+    </div>
+</section>
+
+<hr>
+
+<div class="section" id="work">
+
+    <div class="project-section">
+        <div class="project-info">
+            <div class="project-title">
+                <h1>OTT Database Management System</h1>
+            </div>
+            <div class="project-description">
+                <p>Designed a scalable MySQL database for a simulated Over-the-top (OTT) platform, optimizing user management, real-time recommendations, multi-device sync, and robust analytics to enhance engagement and performance.</p>
+                <a href="https://github.com/Yashraj-Muthyapwar/OTT-Management-System" target="_blank" class="view-project">View Project <span class="arrow-icon">&rarr;</span></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-section">
+        <div class="project-info">
+            <div class="project-title">
+                <h1>Detection of DDOS Attacks in SDN Using Machine Learning</h1>
+            </div>
+            <div class="project-description">
+                <p>Engineered a sophisticated machine learning model that proactively identifies and mitigates Distributed Denial of Service (DDoS) attacks by analyzing network traffic patterns in real-time, enhancing cybersecurity defenses for critical infrastructure.</p>
+                <a href="https://github.com/Yashraj-Muthyapwar/Detection-of-DDOS-Attacks-in-SDN-using-ML" target="_blank" class="view-project">View Project <span class="arrow-icon">&rarr;</span></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-section">
+        <div class="project-info">
+            <div class="project-title">
+                <h1>Block Chain Fault Transaction Detection Using Machine Learning</h1>
+            </div>
+            <div class="project-description">
+                <p>Architected a cutting-edge machine learning model that safeguards blockchain integrity by dynamically analyzing user behavior, uncovering complex fraud patterns, and preemptively flagging potential illicit transactions.</p>
+                <a href="https://github.com/Yashraj-Muthyapwar/Block-Chain-Fault-Transaction-Detection-Using-Machine-Learning" target="_blank" class="view-project">View Project <span class="arrow-icon">&rarr;</span></a>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<hr>
+
+<section class="contact-section" id="contact">
+    <h2>Contact</h2>
+    <div class="contact-links">
+        <a href="https://github.com/yashraj-muthyapwar" target="_blank"><i class="fab fa-github"></i>Github</a>
+        <a href="https://www.linkedin.com/in/yashraj-muthyapwar" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
+        <a href="mailto:yashraj.muthyapwar02@gmail.com"><i class="fas fa-envelope"></i>Email</a>
+        <a href="/path-to-your-resume.pdf" target="_blank"><i class="fas fa-file-alt"></i>Resume</a>
+    </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const lines = [
+            "I'm Yashraj,",
+            "a data enthusiast",
+            "based in Texas."
+        ];
+        let currentLine = 0;
+        let charIndex = 0;
+        const charDelay = 100; // delay between characters
+        const lineDelay = 500; // delay between lines
+        const lineElements = lines.map((line, i) => document.getElementById(`line${i + 1}`));
+
+        function typeWriter() {
+            if (currentLine < lines.length) {
+                const target = lineElements[currentLine];
+                target.classList.add('typing');
+                if (charIndex < lines[currentLine].length) {
+                    target.innerHTML += lines[currentLine].charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeWriter, charDelay);
+                } else {
+                    target.classList.remove('typing');
+                    charIndex = 0;
+                    currentLine++;
+                    if (currentLine < lines.length) {
+                        setTimeout(typeWriter, lineDelay);
+                    } else {
+                        target.classList.add('typing');
+                    }
+                }
+            }
+        }
+
+        lineElements.forEach(lineElement => lineElement.innerHTML = "");
+        typeWriter();
+    });
+</script>
+
+</body>
+</html>

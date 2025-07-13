@@ -118,7 +118,6 @@ nav a {
 .hero {
   text-align: center;
   margin-top: 5rem;
-  min-height: 100svh; /* supported in modern browsers *
 }
   
 .hero h1 {

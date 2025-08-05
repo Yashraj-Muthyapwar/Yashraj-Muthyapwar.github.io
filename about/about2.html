@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yashraj Muthyapwar | Data Scientist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#4F46E5',
+                            dark: '#818CF8'
+                        },
+                        secondary: {
+                            light: '#10B981',
+                            dark: '#34D399'
+                        }
+                    },
+                    boxShadow: {
+                        'card': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                        'card-hover': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
+                    },
+                    keyframes: {
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-16px)' }
+                        },
+                        'fade-in-up': {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        'fade-in': {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        'scale-in': {
+                            '0%': { opacity: '0', transform: 'scale(0.95)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' }
+                        }
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'fade-in-up': 'fade-in-up 1s cubic-bezier(0.4,0,0.2,1) both',
+                        'fade-in': 'fade-in 0.8s cubic-bezier(0.4,0,0.2,1) both',
+                        'scale-in': 'scale-in 0.6s cubic-bezier(0.4,0,0.2,1) both'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <style>
+        #mobile-menu {
+            transition: max-height 0.3s cubic-bezier(0.4,0,0.2,1);
+            overflow: hidden;
+        }
+        #mobile-menu.closed {
+            max-height: 0;
+        }
+        #mobile-menu.open {
+            max-height: 400px;
+        }
+        .about-glow::before {
+            content: '';
+            position: absolute;
+            inset: -16px;
+            z-index: 0;
+            border-radius: 2rem;
+            background: radial-gradient(circle at 60% 40%, #818CF8 0%, #4F46E5 40%, #10B981 100%);
+            opacity: 0.18;
+            filter: blur(32px);
+            transition: opacity 0.4s;
+        }
+        .about-glow:hover::before {
+            opacity: 0.35;
+        }
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1);
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .about-img-shadow {
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18), 0 1.5px 6px 0 rgba(0,0,0,0.08);
+        }
+        
+        .section-transition {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .section-transition.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .skill-card i, .skill-card span {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .skill-card:hover i, .skill-card:hover span {
+            transform: scale(1.2);
+            color: #2563eb;
+        }
+        .dark .skill-card:hover i, .dark .skill-card:hover span {
+            color: #60a5fa;
+        }
+        
+        .gradient-divider {
+            height: 80px;
+            background: linear-gradient(to bottom, 
+                rgba(249, 250, 251, 1) 0%, 
+                rgba(249, 250, 251, 0) 100%);
+        }
+        .dark .gradient-divider {
+            background: linear-gradient(to bottom, 
+                rgba(17, 24, 39, 1) 0%, 
+                rgba(17, 24, 39, 0) 100%);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        @keyframes gradient-move {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        .hero-bg {
+            background-size: 200% 200%;
+            animation: gradient-move 12s ease infinite;
+        }
+
+        /* New styles for improved UI */
+        .profile-img-container {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .profile-img-container:hover {
+            transform: translateY(-5px);
+        }
+        .profile-img-container::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+            border-radius: 1rem;
+            z-index: 1;
+        }
+        .experience-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        .experience-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            border-left-color: #4F46E5;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 1.25rem;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(to bottom, #4F46E5, #10B981);
+        }
+        .skill-badge {
+            transition: all 0.3s ease;
+        }
+        .skill-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .certification-card {
+            transition: all 0.3s ease;
+        }
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <header class="fixed w-full z-50 bg-gradient-to-b from-white/80 dark:from-gray-900/80 via-white/60 dark:via-gray-900/60 to-transparent backdrop-blur-md shadow-none">
+        <nav class="container mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+          <a href="final3.html#home" class="text-2xl font-bold text-primary-light dark:text-primary-dark flex items-center ">
+            Y<span style="color: #10B981; opacity: 0.8;">M</span>
+          </a>
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="final3.html#home" class="hover:text-primary-light dark:hover:text-primary-dark transition font-medium">Home</a>
+            <a href="#about" class="hover:text-primary-light dark:hover:text-primary-dark transition font-medium">About</a>
+            <a href="final3.html#projects" class="hover:text-primary-light dark:hover:text-primary-dark transition font-medium">Projects</a>
+          </div>
+          <div class="flex items-center space-x-2 md:space-x-4">
+            <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition focus:outline-none">
+              <i class="fas fa-moon dark:hidden"></i>
+              <i class="fas fa-sun hidden dark:block"></i>
+            </button>
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition focus:outline-none" aria-label="Open Menu">
+              <span class="sr-only">Open main menu</span>
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </nav>
+      </header>
+      
+      <!-- Mobile Side Menu -->
+      <div id="mobile-menu"
+     class="fixed inset-0 z-50 bg-white dark:bg-gray-900 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between md:hidden pointer-events-none opacity-0">
+ <!-- Close Button -->
+        <div class="flex justify-end p-4">
+          <button id="mobile-menu-close" class="text-2xl focus:outline-none hover:text-primary-light dark:hover:text-primary-dark">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      
+        <!-- Centered Navigation -->
+        <div class="flex flex-col items-center space-y-8 text-xl font-semibold">
+          <a href="final3.html" class="hover:text-primary-light dark:hover:text-primary-dark" onclick="closeMobileMenu()">Home</a>
+          <a href="#about" class="hover:text-primary-light dark:hover:text-primary-dark" onclick="closeMobileMenu()">About</a>
+          <a href="final3.html#projects" class="hover:text-primary-light dark:hover:text-primary-dark" onclick="closeMobileMenu()">Projects</a>
+        </div>
+      
+        <!-- Social Links -->
+        <div class="flex justify-center space-x-6 p-6 text-xl">
+          <a href="https://www.github.com/Yashraj-Muthyapwar/" class="hover:text-primary-light dark:hover:text-primary-dark">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/yashraj-muthyapwar/" class="hover:text-primary-light dark:hover:text-primary-dark">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="mailto:m.yashraj2002@gmail.com" class="hover:text-primary-light dark:hover:text-primary-dark">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- About Section -->
+  <section id="about" class="relative py-24 md:py-32 container mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="fade-in-up profile-img-container">
+        <img src="/deepseek/images/about-desk.png" alt="About Yashraj" class="rounded-xl w-full h-auto object-cover about-img-shadow" />
+      </div>
+      <div class="fade-in-up">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">About Me</h2>
+        <div class="space-y-4">
+          <p class="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300">
+            I'm <span class="text-primary-light dark:text-primary-dark font-semibold">Yashraj Muthyapwar</span>- a passionate Data Scientist committed to transforming ideas into intelligent, real-world solutions.
+          </p>
+          <p class="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300">
+            With a strong foundation in <b>Python, machine learning, and deep learning (CNNs, LSTMs, BERT)</b>, I specialize in building intelligent systems that transform raw data into real business value. My toolkit spans the <b>full data stack</b>—<b>Pandas, TensorFlow, PyTorch, MongoDB, and Azure</b>—enabling me to deliver scalable, end-to-end data products.
+          </p>
+          <p class="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300">
+            Whether it’s automating <b>interview prep with PrepWise</b>, <b>building knowledge assistants for Notion workspaces</b>, or <b>managing large-scale OTT data</b>, I combine technical depth with a focus on business outcomes.
+          </p>
+          <p class="text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300">
+            I believe <span class="text-primary-light dark:text-primary-dark font-semibold">data science</span> is about <b>more than just algorithms</b>—it’s about creating value, enabling smarter decisions, and delivering products users love.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Divider -->
+  <div class="absolute left-0 right-0 bottom-0 h-16 bg-gradient-to-b from-transparent to-gray-50 dark:to-gray-900 pointer-events-none z-0"></div>
+</section>
+
+<!-- Gradient divider -->
+<div class="gradient-divider"></div>
+  
+
+  <!-- Experience -->
+  <section class="py-16 bg-gray-100 dark:bg-gray-900 fade-in-up">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-12">
+        <h3 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">Professional Experience</h3>
+        <div class="w-20 h-1 bg-primary-light dark:bg-primary-dark mx-auto"></div>
+      </div>
+      
+      <div class="max-w-4xl mx-auto">
+        <div class="experience-card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md mb-6">
+          <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+            <h4 class="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white">Data Science Intern</h4>
+            <div class="flex items-center mt-2 md:mt-0">
+              <span class="text-sm font-medium bg-primary-light/10 dark:bg-primary-dark/10 text-primary-light dark:text-primary-dark px-3 py-1 rounded-full">Jan 2023 - May 2023</span>
+            </div>
+          </div>
+          <h5 class="text-lg text-primary-light dark:text-primary-dark font-medium mb-4">DHAPPS EdTech, Hyderabad</h5>
+          <ul class="space-y-3 text-gray-700 dark:text-gray-300">
+            <li class="flex items-start">
+              <span class="text-primary-light dark:text-primary-dark mr-2 mt-1">•</span>
+              <span>Improved data workflows, boosting model accuracy and reducing weekly processing time by 1 hour</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-primary-light dark:text-primary-dark mr-2 mt-1">•</span>
+              <span>Collaborated with cross-functional teams to develop predictive models including Linear Regression</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-primary-light dark:text-primary-dark mr-2 mt-1">•</span>
+              <span>Created a Random Forest churn model increasing retention by 10% and lowering acquisition costs</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-primary-light dark:text-primary-dark mr-2 mt-1">•</span>
+              <span>Enhanced data quality via robust preprocessing and validation pipelines</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-primary-light dark:text-primary-dark mr-2 mt-1">•</span>
+              <span>Reduced data cleaning time by 30% with efficient validation workflows</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="py-20 bg-white dark:bg-gray-900" id="education">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-12 animate-fade-in-up">
+          🎓  <span class="text-primary-light dark:text-primary-dark">Education</span>
+        </h2>
+        <div class="max-w-3xl mx-auto">
+            <!-- Education Timeline -->
+            <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-300 dark:before:via-gray-600 before:to-transparent">
+                
+                <!-- Master's Degree -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active fade-in-up section-transition">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white dark:border-gray-800 bg-primary-light dark:bg-primary-dark text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 animate-float">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white dark:bg-gray-700 p-4 rounded border border-gray-200 dark:border-gray-600 shadow-card hover:shadow-card-hover transition-shadow">
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-primary-light dark:text-primary-dark">Master of Science</span>
+                            <time class="font-bold text-gray-500 dark:text-gray-300">2024 - 2025</time>
+                        </div>
+                        <div class="font-bold">University of North Texas</div>
+                        <div class="text-gray-500 dark:text-gray-400">Data Science | CGPA: 4.00/4</div>
+                        <p class="mt-2">
+                          Developed deep expertise in <b>Machine Learning, Data Analytics, and Cloud AI technologies</b>. Gained practical experience through advanced coursework and projects in data modeling, visualization, and AI-driven systems.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Bachelor's Degree -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group fade-in-up section-transition">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white dark:border-gray-800 bg-primary-light dark:bg-primary-dark text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 animate-float">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white dark:bg-gray-700 p-4 rounded border border-gray-200 dark:border-gray-600 shadow-card hover:shadow-card-hover transition-shadow">
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-primary-light dark:text-primary-dark">Bachelor of Technology</span>
+                            <time class="font-bold text-gray-500 dark:text-gray-300">2019 - 2023</time>
+                        </div>
+                        <div class="font-bold">Malla Reddy College of Engineering</div>
+                        <div class="text-gray-500 dark:text-gray-400">Computer Science | CGPA: 3.56/4</div>
+                        <p class="mt-2">
+                          Built a strong foundation in <b>Algorithms, Data Structures</b>, and <b>Database Management Systems</b>.
+                          Gained hands-on experience in full-stack development and software engineering practices.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+ <!-- Skills -->
+ <section class="bg-gray-100 dark:bg-gray-900 py-16 fade-in-up">
+    <div class="container mx-auto px-6">
+      <h3 class="text-3xl font-bold text-center mb-10">🧰 Skills & Tools</h3>
+  
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6 text-center text-sm">
+        <!-- Programming Languages -->
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-8 h-8 mb-1"><span>Python</span></div>
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R" class="w-8 h-8 mb-1"><span>R</span></div>
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="w-8 h-8 mb-1"><span>Java</span></div>
+  
+        <!-- Databases -->
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" class="w-8 h-8 mb-1"><span>MySQL</span></div>
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" class="w-8 h-8 mb-1"><span>MongoDB</span></div>
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="SQLite" class="w-8 h-8 mb-1"><span>SQLite</span></div>
+  
+        <!-- Web & Tools -->
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML/CSS/JS" class="w-8 h-8 mb-1"><span>HTML</span></div>
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" class="w-8 h-8 mb-1"><span>CSS</span></div>
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="w-8 h-8 mb-1"><span>JavaScript</span></div>
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask" class="w-8 h-8 mb-1"><span>Flask</span></div>
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI" class="w-8 h-8 mb-1"><span>FastAPI</span></div>
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg" alt="Selenium" class="w-8 h-8 mb-1"><span>Selenium</span></div>
+  
+        <!-- DS/ML -->
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy" class="w-8 h-8 mb-1"><span>NumPy</span></div>
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas" class="w-8 h-8 mb-1"><span>Pandas</span></div>
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib" class="w-8 h-8 mb-1"><span>Matplotlib</span></div>
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/plotly/plotly-original.svg" alt="Plotly" class="w-8 h-8 mb-1"><span>Plotly</span></div>
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" class="w-8 h-8 mb-1"><span>TensorFlow</span></div>
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/keras/keras-original.svg" alt="Keras" class="w-8 h-8 mb-1"><span>Keras</span></div>
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch" class="w-8 h-8 mb-1"><span>PyTorch</span></div>
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/streamlit/streamlit-original.svg" alt="Scikit-learn" class="w-8 h-8 mb-1"><span>Streamlit</span></div>
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-learn" class="w-8 h-8 mb-1"><span>Scikit-learn</span></div>
+  
+        <!-- Others -->
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="w-8 h-8 mb-1"><span>Git</span></div>
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" class="w-8 h-8 mb-1"><span>Azure</span></div>
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" class="w-8 h-8 mb-1"><span>AWS</span></div>
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker" class="w-8 h-8 mb-1"><span>Docker</span></div>
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" class="w-8 h-8 mb-1"><span>Linux</span></div>
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash" class="w-8 h-8 mb-1"><span>Bash</span></div>
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original-wordmark.svg" alt="Jupyter" class="w-8 h-8 mb-1"><span>Jupyter</span></div>
+        <div class="skill-card flex flex-col items-center transition-transform hover:scale-110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VSCode" class="w-8 h-8 mb-1"><span>VSCode</span></div>
+      </div>
+    </div>
+  </section>
+  
+  
+  <!-- Certifications Section -->
+<section class="py-20 bg-white dark:bg-gray-800 fade-in-up">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+      <h3 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">Certifications & Achievements</h3>
+      <div class="w-20 h-1 bg-primary-light dark:bg-primary-dark mx-auto"></div>
+    </div>
+    
+    <div class="flex flex-wrap justify-center gap-8">
+      <!-- DeepLearning.AI Badge (Logo Only) -->
+      <div class="certification-card w-[180px] h-[180px] flex items-center justify-center bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 hover:shadow-lg transition-all">
+        <a href="https://www.credly.com/badges/eedd16b5-4c37-4418-9b6c-2742c331690d/" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center">
+          <img src="/deepseek/images/python.png" alt="IBM" class="w-full h-auto object-contain">
+        </a>
+      </div>
+
+      <div class="certification-card w-[180px] h-[180px] flex items-center justify-center bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 hover:shadow-lg transition-all">
+        <a href="https://www.credly.com/badges/99c59f89-a0f3-4b56-b0ae-090db7fa9b92/" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center">
+          <img src="/deepseek/images/data_analysis_with_python.png" alt="IBM" class="w-full h-auto object-contain">
+        </a>
+      </div>
+
+      <div class="certification-card w-[180px] h-[180px] flex items-center justify-center bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 hover:shadow-lg transition-all">
+        <a href="https://www.credly.com/badges/7f68ec00-797a-4b29-af25-09a83c5906ec/" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center">
+          <img src="/deepseek/images/Data_Visualization.png" alt="IBM" class="w-full h-auto object-contain">
+        </a>
+      </div>
+
+      <div class="certification-card w-[180px] h-[180px] flex items-center justify-center bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 hover:shadow-lg transition-all">
+        <a href="https://www.credly.com/badges/7c4ffa02-9adc-47ad-94da-54a11d20f95c/" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center">
+          <img src="/deepseek/images/Databases.png" alt="IBM" class="w-full h-auto object-contain">
+        </a>
+      </div>
+
+      <div class="certification-card w-[180px] h-[180px] flex items-center justify-center bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 hover:shadow-lg transition-all">
+        <a href="https://www.credly.com/badges/e6f428bb-7de1-4936-b72c-82d2887d7f0a/" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center">
+          <img src="/deepseek/images/R.png" alt="IBM" class="w-full h-auto object-contain">
+        </a>
+      </div>
+
+      <div class="certification-card w-[180px] h-[180px] flex items-center justify-center bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 hover:shadow-lg transition-all">
+        <a href="https://www.credly.com/badges/fe9889f0-46d1-4ad2-9700-f660beba8b28/" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center">
+          <img src="/deepseek/images/blob.png" alt="DeepLearning.AI Logo" class="w-full h-auto object-contain">
+          
+        </a>
+      </div>
+      
+      <div class="certification-card w-[180px] h-[180px] flex items-center justify-center bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 hover:shadow-lg transition-all">
+        <a href="https://www.credly.com/badges/ff2d0aa5-53af-4ffd-9de6-2043788c2bc4/" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center">
+          <img src="/deepseek/images/MongoDB.png" alt="MongoDB" class="w-full h-auto object-contain">
+        </a>
+      </div>
+      
+      <div class="certification-card w-[180px] h-[180px] flex items-center justify-center bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 hover:shadow-lg transition-all">
+        <a href="https://api.badgr.io/public/assertions/xvBnnqH-RD2dqEG4D6unmA?identity__email=muthyapwaryashraj%40gmail.com" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center">
+          <img src="/deepseek/images/postman.png" alt="Postman" class="w-full h-auto object-contain">
+      
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Portfolio Chatbot: Advanced & Responsive -->
+<style>
+    #chatbot-toggle {
+      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 50;
+      background: #4F46E5; color: white;
+      width: 3.5rem; height: 3.5rem;
+      border-radius: 9999px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.15);
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 1.8rem;
+    }
+    #chatbot-toggle:hover { 
+      background: #3730A3; 
+      transform: scale(1.1);
+    }
+  
+    #chatbot-box {
+      position: fixed; bottom: 6rem; right: 1.5rem; z-index: 50;
+      width: 360px; max-width: 96vw;
+      height: 480px; max-height: 80vh;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(16px) saturate(180%);
+      border-radius: 1rem;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.2);
+      border: 1px solid rgba(200,200,200,0.3);
+      display: none; flex-direction: column;
+      overflow: hidden;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    #chatbot-box.open {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    #chatbot-header {
+      padding: 1rem; background: transparent; font-weight: bold;
+      border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center;
+      color: #4F46E5;
+    }
+    #chatbot-close { font-size: 1.3rem; border: none; background: none; cursor: pointer; color: #6b7280; }
+    #chatbot-close:hover { color: #ef4444; }
+    #chatbot-messages {
+      flex: 1; overflow-y: auto; padding: 1rem;
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .chat-bubble {
+      padding: 0.75rem 1rem; border-radius: 1.25rem;
+      background: #f3f4f6; color: #374151;
+      max-width: 80%; align-self: flex-start;
+      font-size: 0.95rem;
+      animation: fade-in 0.3s ease;
+    }
+    .chat-bubble.user {
+      align-self: flex-end; background: #4F46E5; color: white;
+    }
+    #chatbot-input-row {
+      border-top: 1px solid #e5e7eb; display: flex; background: transparent;
+      padding: 0.75rem;
+    }
+    #chatbot-input {
+      flex: 1; padding: 0.75rem 1rem; border-radius: 0.75rem;
+      border: 1px solid #e5e7eb; font-size: 1rem; background: #fff;
+      color: #000 !important;
+      transition: border-color 0.2s;
+    }
+    #chatbot-input:focus {
+      outline: none;
+      border-color: #4F46E5;
+    }
+    #chatbot-send {
+      background: #4F46E5; color: #fff; border: none;
+      margin-left: 0.5rem; padding: 0 1.25rem;
+      border-radius: 0.75rem; font-weight: 500; cursor: pointer;
+      transition: background 0.2s;
+    }
+    #chatbot-send:hover { background: #3730A3; }
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+  <div id="chatbot-toggle" title="Ask Me!">🙋🏻‍♂️</div>
+  <div id="chatbot-box">
+  <div id="chatbot-header">
+      Portfolio Assistant
+      <button id="chatbot-close" title="Close Chatbot">×</button>
+  </div>
+  <div id="chatbot-messages"></div>
+  <form id="chatbot-input-row">
+  <input id="chatbot-input" maxlength="300" placeholder="Ask about my projects, skills…" required="" type="text"/>
+  <button id="chatbot-send" type="submit">Send</button>
+  </form>
+  </div>
+  
+  <script>
+    const chatbotToggle = document.getElementById("chatbot-toggle");
+    const chatbotBox = document.getElementById("chatbot-box");
+    const chatbotClose = document.getElementById("chatbot-close");
+    const chatbotForm = document.getElementById("chatbot-input-row");
+    const chatbotInput = document.getElementById("chatbot-input");
+    const chatbotMessages = document.getElementById("chatbot-messages");
+  
+    function addBubble(msg, from = 'bot') {
+      const div = document.createElement('div');
+      div.className = `chat-bubble ${from === 'user' ? 'user' : ''}`;
+      div.textContent = msg;
+      chatbotMessages.appendChild(div);
+      chatbotMessages.scrollTo({ top: chatbotMessages.scrollHeight, behavior: 'smooth' });
+    }
+  
+    chatbotToggle.onclick = () => {
+      chatbotBox.style.display = 'flex';
+      setTimeout(() => {
+        chatbotBox.classList.add('open');
+      }, 10);
+
+      if (!chatbotMessages.querySelector('.chat-bubble')) {
+        setTimeout(() => {
+          addBubble("👋 Hey! I'm Yashraj's AI assistant. Ask me about his projects, skills in Python & ML, or summary of his profile — I'm here to help!");
+        }, 300);
+      }
+    };
+    
+    chatbotClose.onclick = () => {
+      chatbotBox.classList.remove('open');
+      setTimeout(() => {
+        chatbotBox.style.display = 'none';
+      }, 300);
+    };
+  
+    chatbotForm.onsubmit = async e => {
+      e.preventDefault();
+      const msg = chatbotInput.value.trim();
+      if (!msg) return;
+    
+      addBubble(msg, 'user');
+      chatbotInput.value = '';
+    
+      try {
+        const res = await fetch("http://127.0.0.1:5000/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: msg })
+        });
+    
+        const data = await res.json();
+        console.log("✅ Backend replied:", data.response);
+        addBubble(data.response || "Sorry, I couldn't respond right now.");
+      } catch (err) {
+        console.error("❌ Error reaching backend:", err);
+        addBubble("Error reaching backend.");
+      }
+    };
+  </script>
+  </body>  
+
+  <!-- Footer -->
+  <!-- Footer -->
+  <footer class="py-3 bg-gray-200 dark:bg-gray-900">
+    <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+            <div class="mb-4 md:mb-0">
+                <p class="text-gray-600 dark:text-gray-400">© 2024 Yashraj Muthyapwar. All rights reserved.</p>
+            </div>
+            
+            <div class="flex space-x-4">
+                <a href="https://www.linkedin.com/in/yashraj-muthyapwar/" target="_blank" class="w-10 h-10 flex items-center justify-center bg-white dark:bg-gray-700 rounded-full shadow hover:bg-primary-light dark:hover:bg-primary-dark hover:text-white transition transform hover:-translate-y-1 hover:scale-110 duration-300">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.github.com/Yashraj-Muthyapwar/" target="_blank" class="w-10 h-10 flex items-center justify-center bg-white dark:bg-gray-700 rounded-full shadow hover:bg-primary-light dark:hover:bg-primary-dark hover:text-white transition transform hover:-translate-y-1 hover:scale-110 duration-300">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:m.yashraj2002@gmail.com" class="w-10 h-10 flex items-center justify-center bg-white dark:bg-gray-700 rounded-full shadow hover:bg-primary-light dark:hover:bg-primary-dark hover:text-white transition transform hover:-translate-y-1 hover:scale-110 duration-300">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- JavaScript -->
+<script>
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    
+    // Check for saved user preference or use system preference
+    if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        html.classList.add('dark');
+    }
+    
+    themeToggle.addEventListener('click', () => {
+        html.classList.toggle('dark');
+        localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+    function openMobileMenu() {
+      mobileMenu.classList.remove('translate-x-full', 'pointer-events-none', 'opacity-0');
+      mobileMenu.classList.add('translate-x-0');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenu() {
+      mobileMenu.classList.add('translate-x-full', 'pointer-events-none', 'opacity-0');
+      mobileMenu.classList.remove('translate-x-0');
+      document.body.style.overflow = '';
+    }
+
+    mobileMenuButton.addEventListener('click', openMobileMenu);
+    mobileMenuClose.addEventListener('click', closeMobileMenu);
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            // Only prevent default if not inside mobile menu overlay
+            if (!this.closest('#mobile-menu')) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+
+    // Intersection Observer for section transitions
+    const sections = document.querySelectorAll('section');
+    const options = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const sectionObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, options);
+
+    sections.forEach(section => {
+        section.classList.add('section-transition');
+        sectionObserver.observe(section);
+    });
+
+    // Fade-in-up animation on scroll for .fade-in-up elements
+    function revealOnScroll() {
+        const reveals = document.querySelectorAll('.fade-in-up:not(.visible)');
+        const windowHeight = window.innerHeight;
+        reveals.forEach((el, i) => {
+            const elementTop = el.getBoundingClientRect().top;
+            if (elementTop < windowHeight - 60) {
+                el.classList.add('visible');
+            }
+        });
+    }
+    
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('DOMContentLoaded', () => {
+        revealOnScroll();
+        
+        // Animate hero elements sequentially
+        const heroElements = document.querySelectorAll('.animate-fade-in-up');
+        heroElements.forEach((el, i) => {
+            el.style.animationDelay = `${i * 0.2}s`;
+        });
+    });
+</script>
+</body>
+</html>

@@ -140,12 +140,12 @@ document.addEventListener('DOMContentLoaded', function() {
             "github": "https://github.com/Yashraj-Muthyapwar/PrepWise-LinkedIn-Interview-AI",
             "demo": "https://chromewebstore.google.com/detail/nhdmfoekhhmamoidnappbckcjlbojnke?utm_source=item-share-cb",
             "images": [
-                "/deepseek/images/Screenshot1.png",
-                "/deepseek/images/Screenshot2.png",
-                "/deepseek/images/Screenshot3.png",
-                "/deepseek/images/Screenshot4.png",
-                "/deepseek/images/Screenshot5.png",
-                "/deepseek/images/Screenshot6.png"
+                "/images/Screenshot1.png",
+                "/images/Screenshot2.png",
+                "/images/Screenshot3.png",
+                "/images/Screenshot4.png",
+                "/images/Screenshot5.png",
+                "/images/Screenshot6.png"
             ]
         },
         "NotionAtlas — AI Semantic Search & RAG Assistant for Notion": {
@@ -176,8 +176,8 @@ document.addEventListener('DOMContentLoaded', function() {
             "github": "https://github.com/Yashraj-Muthyapwar/NotionAtlas-AI-Semantic-Search-And-RAG-Assistant-for-Notion",
             "demo": "https://notionatlas.streamlit.app/",
             "images": [
-                "/deepseek/images/NotionAtlas.png",
-                "/deepseek/images/NotionDemo.png"
+                "/images/NotionAtlas.png",
+                "/images/NotionDemo.png"
             ]
         },
         "OTT(Over-The-Top) Management-System": {
@@ -205,8 +205,8 @@ document.addEventListener('DOMContentLoaded', function() {
             "github": "https://github.com/Yashraj-Muthyapwar/OTT-Management-System",
             "demo": "#",
             "images": [
-                "/deepseek/images/ott-project.png",
-                "/deepseek/images/ott.png"
+                "/images/ott-project.png",
+                "/images/ott.png"
             ]
         },
         "DDoS Attack Detection in SDN (Software Defined Network)": {
@@ -238,8 +238,8 @@ document.addEventListener('DOMContentLoaded', function() {
             "github": "https://github.com/Yashraj-Muthyapwar/Detection-of-DDOS-Attacks-in-SDN-using-ML",
             "demo": "#",
             "images": [
-                "/deepseek/images/ddos-detection.png",
-                "/deepseek/images/ddos-detection1.png"
+                "/images/ddos-detection.png",
+                "/images/ddos-detection1.png"
             ]
         }
     };

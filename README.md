@@ -1,8 +1,8 @@
-# Yashraj Muthyapwar - Data Scientist Portfolio
+# Yashraj Muthyapwar Portfolio
 
 A modern, responsive portfolio website showcasing data science expertise and projects.
 
-## File Structure
+## 📁 File Structure
 
 ```
 Portfolio/
@@ -14,7 +14,11 @@ Portfolio/
 └── README.md           # This file
 ```
 
-## Features
+## 🌟 Live Demo
+
+[![Live Portfolio](https://img.shields.io/badge/🌐_Live_Portfolio-Visit_Now-3136B0?style=for-the-badge)](https://yashrajmuthyapwar.me)
+
+## ✨ Features
 
 - **Responsive Design**: Works on desktop, tablet, and mobile devices
 - **Dark/Light Theme**: Toggle between themes with persistence
@@ -23,7 +27,7 @@ Portfolio/
 - **Modern UI**: Clean, professional design with hover effects
 - **Accessibility**: ARIA labels and keyboard navigation support
 
-## Sections
+## 📄 Sections
 
 1. **About**: Professional profile and expertise
 2. **Skills**: Technical skills organized by category
@@ -32,29 +36,32 @@ Portfolio/
 5. **Education**: Academic background and certifications
 6. **Contact**: Social links and contact information
 
-## Technologies Used
+## 🛠️ Technologies Used
 
-- HTML5
-- CSS3 (with CSS Grid, Flexbox, and Custom Properties)
-- Vanilla JavaScript
-- Google Fonts (Inter)
-- SVG Icons
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+![Google Fonts](https://img.shields.io/badge/Google_Fonts-4285F4?style=for-the-badge&logo=google&logoColor=white)
+![SVG](https://img.shields.io/badge/SVG-FFB13B?style=for-the-badge&logo=svg&logoColor=black)
 
-## Getting Started
 
-1. Open `index.html` in a web browser
-2. All styles and scripts are linked automatically
-3. No build process or dependencies required
+## 📜 License
 
-## Browser Support
+**Copyright © 2025 Yashraj Muthyapwar. All Rights Reserved.**
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+This portfolio is proprietary and confidential. Unauthorized copying, modification, distribution, or use of this code, via any medium, is strictly prohibited without explicit written permission from the copyright holder.
 
-## Customization
+### Usage Permissions
+- ✅ View the live website
+- ✅ Fork for personal learning purposes only
+- ❌ Use in commercial projects
+- ❌ Redistribute or publish
+- ❌ Use as a template for your own portfolio
+- ❌ Remove copyright notices
 
-- Update personal information in `index.html`
-- Modify colors and styling in `styles.css`
-- Add new chatbot responses in `script.js`
+For licensing inquiries, [contact](mailto:muthyapwaryashraj@gmail.com)
+
+---
+
+**Made with ♥ by Yashraj Muthyapwar** <br>
+*Driven by data, inspired by insights.*

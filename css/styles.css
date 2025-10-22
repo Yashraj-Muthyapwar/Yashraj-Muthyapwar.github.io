@@ -425,6 +425,32 @@ code {
 
 .project-links { display:flex; gap:12px; align-items:center; justify-content:flex-end; }
 
+.section#projects .card { 
+  display: flex;                /* make card a column container */
+  flex-direction: column;
+}
+
+.section#projects .card .muted {
+  line-height: 1.6;
+  /* multi-line clamp (works across browsers) */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;                /* Firefox */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  block-overflow: ellipsis;     /* Firefox */
+  min-height: calc(1.6em * 3);  /* keeps 3-line space even if shorter */
+  margin-bottom: 12px;
+}
+
+/* push tags/links row to the bottom of each card */
+.section#projects .project-footer {
+  margin-top: auto;             /* replaces fixed margin */
+  padding-top: 12px;
+}
+
+
 /* Container for tags and project links alignment */
 .project-footer { 
     display: flex; 

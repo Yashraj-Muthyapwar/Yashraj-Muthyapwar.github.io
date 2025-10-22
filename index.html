@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yashraj Muthyapwar Portfolio 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link id="favicon" rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='200' height='200' fill='white'/><text x='50' y='75' text-anchor='middle' font-size='65' font-weight='800' fill='black' font-family='Inter, sans-serif' letter-spacing='-2'>YM</text></svg>">
+    
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="header-text">PORTFOLIO / 2025</div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                    <svg id="bulbIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="display: none">
+                        <path d="M9 21h6v-1H9v1zm3-19a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7zm0 2a5 5 0 0 1 5 5c0 1.84-1.01 3.45-2.5 4.33a1 1 0 0 0-.5.87V16h-4v-1.8a1 1 0 0 0-.5-.87A5.01 5.01 0 0 1 7 10a5 5 0 0 1 5-5z"/>
+                    </svg>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+
+        <nav class="quickbar" aria-label="Quick links">
+            <button class="close-btn" id="closeBtn" aria-label="Close menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            
+            <div class="nav-content">
+                <div class="nav-links">
+                    <a class="nav-item" href="#about">About</a>
+                    <a class="nav-item" href="#skills">Skills</a>
+                    <a class="nav-item" href="#experience">Experience</a>
+                    <a class="nav-item" href="#projects">Projects</a>
+                    <a class="nav-item" href="#education">Education</a>
+                    <a class="nav-item" href="#contact">Contact</a>
+                    <a class="nav-item" href="#terminal">Portfolio Console</a>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://github.com/yashraj-muthyapwar" target="_blank" rel="noopener" class="social-icon" title="GitHub">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.26.82-.577 0-.285-.011-1.04-.017-2.04-3.338.726-4.042-1.614-4.042-1.614-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.084-.73.084-.73 1.205.085 1.84 1.238 1.84 1.238 1.073 1.837 2.812 1.306 3.497.998.107-.775.42-1.306.762-1.606-2.665-.305-5.466-1.332-5.466-5.932 0-1.311.468-2.381 1.235-3.222-.123-.305-.535-1.532.118-3.191 0 0 1.008-.323 3.301 1.23A11.52 11.52 0 0 1 12 6.844c1.02.005 2.047.138 3.009.403 2.291-1.553 3.297-1.23 3.297-1.23.655 1.659.243 2.886.12 3.191.77.841 1.233 1.91 1.233 3.222 0 4.61-2.804 5.624-5.472 5.921.43.371.814 1.108.814 2.234 0 1.614-.014 2.917-.014 3.317 0 .32.216.694.825.576C20.565 21.796 24 17.298 24 12c0-6.63-5.37-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/in/yashraj-muthyapwar" target="_blank" rel="noopener" class="social-icon" title="LinkedIn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.75 0-5 2.25-5 5v14c0 2.75 2.25 5 5 5h14c2.75 0 5-2.25 5-5v-14c0-2.75-2.25-5-5-5zm-11.29 20h-3.42v-10.84h3.42zm-1.71-12.27c-1.1 0-1.99-.89-1.99-1.99s.89-1.99 1.99-1.99 1.99.89 1.99 1.99-.89 1.99-1.99 1.99zm15.7 12.27h-3.4v-5.41c0-1.29-.03-2.97-1.81-2.97-1.81 0-2.09 1.41-2.09 2.88v5.5h-3.39v-10.84h3.26v1.48h.04c.45-.84 1.54-1.73 3.17-1.73 3.39 0 4.02 2.24 4.02 5.14v6z"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:muthyapwaryashraj@gmail.com" class="social-icon" title="Email">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 2v.01L12 13l8-6.99V6H4zm16 2.2l-7.46 6.51c-.33.29-.83.29-1.17 0L4 8.2V18h16V8.2z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero container">
+            <div class="name">
+                <span class="first">Yashraj</span>
+                <span class="last">Muthyapwar</span>
+            </div>
+            <p class="tagline">
+                Data Scientist transforming raw data into actionable insights at the intersection of 
+                <span class="bold-white">analytics</span>, 
+                <span class="bold-white">machine learning</span>, and 
+                <span class="bold-white">business intelligence</span>.
+            </p>
+            <div class="status">
+                <div class="meta">
+                    <span class="dot" aria-hidden="true"></span>
+                    <span class="bold-white">Available for work</span>
+                </div>
+                <div class="meta location">United States</div>
+            </div>
+        </section>
+
+        <!-- Content Grid -->
+        <div class="container layout">
+            <!-- Desktop Sidebar -->
+            <aside class="sidebar" aria-label="Sidebar quick links">
+                <div class="sidebar-header">
+                    <strong class="sidebar-title">Quick Links</strong>
+                </div>
+                <div class="sidebar-links">
+                    <a class="chip primary" href="#about">About</a>
+                    <a class="chip" href="#skills">Skills</a>
+                    <a class="chip" href="#experience">Experience</a>
+                    <a class="chip" href="#projects">Projects</a>
+                    <a class="chip" href="#education">Education</a>
+                    <a class="chip" href="#contact">Contact</a>
+                    <a class="chip" href="#terminal">Portfolio Console</a>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <div>
+                <!-- About -->
+                <section id="about" class="section lazyhide">
+                    <h2 class="section-title">👋 About</h2>
+                    <div class="cards">
+                        <article class="card">
+                            <div class="kicker">Profile</div>
+                            <h3 class="title">I build end-to-end data products</h3>
+                            <p class="muted">
+                                I’m a Data Scientist passionate about turning complex data into intelligent, real-world solutions. I focus on 
+                                <strong>machine learning</strong>, <strong>analytics</strong>, and
+                                <strong>scalable AI systems</strong>. From <strong>data discovery</strong> and <strong>feature engineering</strong> to <strong>model selection</strong>, <strong>deployment</strong>, and <strong>monitoring</strong>, 
+                                I love transforming ambiguity into measurable impact and creating solutions that truly make a difference.
+                            </p>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Skills -->
+                <section id="skills" class="section lazyhide">
+                    <h2 class="section-title">🛠️ Skills</h2>
+                    <div class="cards">
+                        <article class="card span-6">
+                            <div class="kicker">Modeling & ML</div>
+                            <div class="tags">
+                                <span class="tag">Scikit-learn</span>
+                                <span class="tag">XGBoost</span>
+                                <span class="tag">TensorFlow</span>
+                                <span class="tag">PyTorch</span>
+                                <span class="tag">NLP</span>
+                                <span class="tag">Time Series</span>
+                                <span class="tag">A/B Testing</span>
+                                <span class="tag">Keras</span>
+                                <span class="tag">Hugging Face</span>
+
+                            </div>
+                        </article>
+                        <article class="card span-6">
+                            <div class="kicker">Data & Engineering</div>
+                            <div class="tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">SQL</span>
+                                <span class="tag">Pandas</span>
+                                <span class="tag">Spark</span>
+                                <span class="tag">Airflow</span>
+                                <span class="tag">Docker</span>
+                                <span class="tag">AWS/Azure</span>
+                                <span class="tag">Snowflake</span>
+                                <span class="tag">Databricks</span>
+                                <span class="tag">MongoDB</span>
+                                <span class="tag">Redis</span>
+                            </div>
+                        </article>
+                        <article class="card span-6">
+                            <div class="kicker">Analytics & BI</div>
+                            <div class="tags">
+                                <span class="tag">Tableau</span>
+                                <span class="tag">Power BI</span>
+                                <span class="tag">Plotly</span>
+                                <span class="tag">Matplotlib</span>
+                                <span class="tag">Dash</span>
+                                <span class="tag">Looker</span>
+                            </div>
+                        </article>
+                        <article class="card span-6">
+                            <div class="kicker">MLOps & Deployment</div>
+                            <div class="tags">
+                                <span class="tag">MLflow</span>
+                                <span class="tag">BentoML</span>
+                                <span class="tag">FastAPI</span>
+                                <span class="tag">Streamlit</span>
+                                <span class="tag">DVC</span>
+                                <span class="tag">Model Registry</span>
+                                <span class="tag">Data Versioning</span>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Experience -->
+                <section id="experience" class="section lazyhide">
+                    <h2 class="section-title">⤷ Experience</h2>
+                    <!-- <div class="cards"> -->
+                        <article class="card span-6">
+                            <div class="kicker">2023</div>
+                            <h3 class="title">Octazen Software Solutions · Machine Learning Intern</h3>
+                            <p class="muted">
+                                At Octazen, customer churn was climbing and no one really knew why. I wasn’t handed a clean dataset or a clear plan, just a problem that needed fixing. I started with a quick logistic regression baseline, moved through Random Forest and XGBoost, and ended up with a model that held its ground <strong>88% accuracy and 0.91 AUC</strong>. But models in notebooks don’t change outcomes, so I built a <strong>FastAPI microservice</strong> with versioned <strong><code>/score</code></strong> and <strong><code>/health</code></strong> endpoints, turning it into something teams could actually use in production.
+                                </p>
+                                
+                                <p class="muted" style="text-indent: 5rem;">
+                                Meanwhile, I teamed up with data engineering to clean up the backend mess <strong>smarter indexes, tighter joins, fewer round trips</strong> which cut query latency by <strong>35%</strong>. Suddenly, dashboards started updating faster and churn risk wasn’t a mystery anymore. My biggest takeaway? Great models matter, but <strong>impact comes from shipping systems that work every single day</strong>.
+                                </p>
+                                
+                        </article>
+                        <!-- <article class="card span-6">
+                            <div class="kicker">2022 — 2024</div>
+                            <h3 class="title">DataLabs · Data Analyst → Sr. Data Scientist</h3>
+                            <p class="muted">
+                                Designed demand forecasting (MAPE −18%), optimized inventory with time-series ensembles,
+                                and partnered with Product to design decision dashboards adopted across 5 teams.
+                            </p>
+                        </article> -->
+                    <!-- </div> -->
+                </section>
+
+                <!-- Projects -->
+                <section id="projects" class="section lazyhide">
+                    <h2 class="section-title">⚙️ Projects</h2>
+                    <div class="cards">
+                        <article class="card span-6">
+                            <div class="kicker">Featured</div>
+                            <h3 class="title">NotionAtlas AI Semantic Search & RAG for Notion</h3>
+                            <p class="muted">
+                                Turns your Notion workspace into a conversational, context-aware assistant with semantic search, Retrieval-Augmented Generation, and real-time answers.
+                            </p>
+                            <div class="project-footer">
+                                <div class="tags">
+                                    <span class="tag">Python</span>
+                                    <span class="tag">Streamlit</span>
+                                    <span class="tag">Llama 4</span>
+                                    <span class="tag">RAG</span>
+                            
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/Yashraj-Muthyapwar/NotionAtlas-AI-Semantic-Search-And-RAG-Assistant-for-Notion" target="_blank" rel="noopener" class="github-link" title="View on GitHub">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                                        </svg>
+                                    </a>
+                                    <a href="https://notionatlas.streamlit.app/" target="_blank" rel="noopener" class="demo-link" title="View Live Demo">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                            <polyline points="15,3 21,3 21,9"/>
+                                            <line x1="10" y1="14" x2="21" y2="3"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card span-6">
+                            <div class="kicker">Featured</div>
+                            <h3 class="title">HR Analytics Dashboard</h3>
+                            <p class="muted">
+                                Interactive Tableau dashboard that surfaces early-tenure and travel-related attrition drivers; current overall attrition 16.1%.
+                            </p>
+                            <div class="project-footer">
+                                <div class="tags">
+                                    <span class="tag">Tableau</span>
+                                    <span class="tag">HR Analytics</span>
+                                    <span class="tag">Attrition</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/Yashraj-Muthyapwar/HR-Analytics-Dashboard" target="_blank" rel="noopener" class="github-link" title="View on GitHub">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                                        </svg>
+                                    </a>
+                                    <a href="https://public.tableau.com/app/profile/yash.raj.muthyapwar/viz/HR_Analytics_Workbook/HRDashboard" target="_blank" rel="noopener" class="demo-link" title="View Live Demo">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                            <polyline points="15,3 21,3 21,9"/>
+                                            <line x1="10" y1="14" x2="21" y2="3"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card span-6">
+                            <div class="kicker">DATA PIPELINE</div>
+                            <h3 class="title">Automated Data Pipeline & Interactive Dashboard</h3>
+                            <p class="muted">
+                                End-to-end ETL from API / web scraping / CSV → pandas transforms → SQLite → a sleek Streamlit app. Containerized with Docker and schedulable with Airflow.
+                            </p>
+                            <div class="project-footer">
+                                <div class="tags">
+                                    <span class="tag">Python</span>
+                                    <span class="tag">ETL</span>
+                                    <span class="tag">Airflow</span>
+                                    <span class="tag">Docker</span>
+                                    <span class="tag">Streamlit</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/Yashraj-Muthyapwar/Automated-Data-Pipeline-Interactive-Dashboard" target="_blank" rel="noopener" class="github-link" title="View on GitHub">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                                        </svg>
+                                    </a>
+                                    <a href="https://github.com/Yashraj-Muthyapwar/Automated-Data-Pipeline-Interactive-Dashboard" target="_blank" rel="noopener" class="demo-link" title="View Live Demo">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                            <polyline points="15,3 21,3 21,9"/>
+                                            <line x1="10" y1="14" x2="21" y2="3"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card span-6">
+                            <div class="kicker">AI</div>
+                            <h3 class="title">PrepWise LinkedIn Interview AI</h3>
+                            <p class="muted">
+                                Turns LinkedIn job posts into live, voice-driven mock interviews with instant AI scoring and natural TTS - right on the job page.
+                            </p>
+                            <div class="project-footer">
+                                <div class="tags">
+                                    <span class="tag">Chrome Extension</span>
+                                    <span class="tag">JavaScript</span>
+                                    <span class="tag">Whisper</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/Yashraj-Muthyapwar/PrepWise-LinkedIn-Interview-AI" target="_blank" rel="noopener" class="github-link" title="View on GitHub">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                                        </svg>
+                                    </a>
+                                    <a href="https://chromewebstore.google.com/detail/prepwise-linkedin-intervi/nhdmfoekhhmamoidnappbckcjlbojnke?utm_source=item-share-cb" target="_blank" rel="noopener" class="demo-link" title="View Live Demo">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                            <polyline points="15,3 21,3 21,9"/>
+                                            <line x1="10" y1="14" x2="21" y2="3"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Education -->
+                <section id="education" class="section lazyhide">
+                    <h2 class="section-title">🎓 Education</h2>
+                    <div class="cards">
+                        <article class="card span-6">
+                            <div class="kicker">2024 - Present</div>
+                            <h3 class="title">Master's of Science in Data Science</h3>
+                            <p class="muted">
+                                University of North Texas, USA &nbsp; <span class="tag"> GPA: 4.0/4.0</span><br><br>
+                                Focused on Machine Learning, Analytics, and Artificial Intelligence with hands-on projects in
+                                <span class="education-highlight">data modeling, visualization,</span> and <span class="education-highlight">deployment.</span>
+                            <div class="tags">
+                                <span class="tag">Machine Learning</span>
+                                <span class="tag">Statistics</span>
+                                <span class="tag">Cloud</span>
+                                <span class="tag">AI</span>
+                                <span class="tag">Data Analytics</span>
+                            </div>
+                        </article>
+                        <article class="card span-6">
+                            <div class="kicker">2019 - 2023</div>
+                            <h3 class="title">Bachelor's of Technology in Computer Science</h3>
+                            <p class="muted">
+                                Malla Reddy College of Engineering, India &nbsp; <span class="tag">GPA: 3.56/4.0</span><br><br>
+                                Gained strong foundations in Algorithms, Data Structures, and Databases with experience in <span class="education-highlight">full-stack</span> and <span class="education-highlight">software engineering projects.</span>
+                            <div class="tags">
+                                <span class="tag">Data Structures</span>
+                                <span class="tag">Algorithms</span>
+                                <span class="tag">DBMS</span>
+                                <span class="tag">Software Engineering</span>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Contact -->
+                <section id="contact" class="section lazyhide">
+                    <h2 class="section-title">📮 Get in touch</h2>
+                    <div class="cards">
+                        <article class="card">
+                            <p class="muted">
+                                Open to roles and collaborations in data science, ML, and analytics. Prefer email first.
+                            </p>
+                            <div class="social-icons" aria-label="Contact icons">
+                                <a class="social-link" href="mailto:muthyapwaryashraj@gmail.com" title="Email" aria-label="Email" target="_blank" rel="noopener">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2zm0 2v.01L12 13l8-6.99V6H4zm16 2.2l-7.46 6.51c-.33.29-.83.29-1.17 0L4 8.2V18h16V8.2z"/>
+                                    </svg>
+                                </a>
+                                <a class="social-link" href="https://linkedin.com/in/yashraj-muthyapwar" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M19 0h-14c-2.75 0-5 2.25-5 5v14c0 2.75 2.25 5 5 5h14c2.75 0 5-2.25 5-5v-14c0-2.75-2.25-5-5-5zm-11.29 20h-3.42v-10.84h3.42zm-1.71-12.27c-1.1 0-1.99-.89-1.99-1.99s.89-1.99 1.99-1.99 1.99.89 1.99 1.99-.89 1.99-1.99 1.99zm15.7 12.27h-3.4v-5.41c0-1.29-.03-2.97-1.81-2.97-1.81 0-2.09 1.41-2.09 2.88v5.5h-3.39v-10.84h3.26v1.48h.04c.45-.84 1.54-1.73 3.17-1.73 3.39 0 4.02 2.24 4.02 5.14v6z"/>
+                                    </svg>
+                                </a>
+                                <a class="social-link" href="https://github.com/yashraj-muthyapwar" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.26.82-.577 0-.285-.011-1.04-.017-2.04-3.338.726-4.042-1.614-4.042-1.614-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.084-.73.084-.73 1.205.085 1.84 1.238 1.84 1.238 1.073 1.837 2.812 1.306 3.497.998.107-.775.42-1.306.762-1.606-2.665-.305-5.466-1.332-5.466-5.932 0-1.311.468-2.381 1.235-3.222-.123-.305-.535-1.532.118-3.191 0 0 1.008-.323 3.301 1.23A11.52 11.52 0 0 1 12 6.844c1.02.005 2.047.138 3.009.403 2.291-1.553 3.297-1.23 3.297-1.23.655 1.659.243 2.886.12 3.191.77.841 1.233 1.91 1.233 3.222 0 4.61-2.804 5.624-5.472 5.921.43.371.814 1.108.814 2.234 0 1.614-.014 2.917-.014 3.317 0 .32.216.694.825.576C20.565 21.796 24 17.298 24 12c0-6.63-5.37-12-12-12z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Portfolio Console -->
+                <section id="terminal" class="section lazyhide">
+                    <h2 class="section-title">🖥️ &nbsp; Portfolio Console</h2>
+                    <div class="cards">
+                        <article class="card">
+                            <div class="terminal-container terminal">
+                                <div class="terminal-header">
+                                    <div class="terminal-controls">
+                                        <div class="terminal-control close"></div>
+                                        <div class="terminal-control minimize"></div>
+                                        <div class="terminal-control maximize"></div>
+                                    </div>
+                                    <div class="terminal-title">yashraj@portfolio:~$</div>
+                                </div>
+                                <div class="terminal-body">
+                                    <div class="terminal-output" id="terminalOutput">
+                                        <div class="terminal-line">
+                                            <span class="terminal-prompt">yashraj@portfolio:~$</span>
+                                            <span class="terminal-text">Welcome to my portfolio terminal!</span>
+                                        </div>
+                                        <div class="terminal-line">
+                                            <span class="terminal-prompt">yashraj@portfolio:~$</span>
+                                            <span class="terminal-text">Type 'help' to see available commands</span>
+                                        </div>
+                                    </div>
+                                    <div class="terminal-input-line">
+                                        <span class="terminal-prompt" id="terminalPrompt">yashraj@portfolio:~$</span>
+                                        <input type="text" class="terminal-input" id="terminalInput" autocomplete="off" spellcheck="false">
+                                        <span class="terminal-cursor" id="terminalCursor">█</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">© <span id="year"></span> Yashraj Muthyapwar. All rights reserved. </div>
+        <div class="container padded-left"> ♥ Driven by data, inspired by insights.</div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container" id="chatbotContainer">
+      <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">
+          <div class="chatbot-title"><span>Portfolio Assistant</span></div>
+          <button class="chatbot-close" id="chatbotClose" aria-label="Close chatbot">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+          <div class="chatbot-message bot-message">
+            <div class="message-content">Hi! I'm Yashraj's assistant. Ask me about his projects, skills, or experience!</div>
+          </div>
+        </div>
+        <div class="chatbot-input-container">
+          <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Ask about data science, projects, or experience..." autocomplete="off">
+          <button class="chatbot-send" id="chatbotSend" aria-label="Send message">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22,2 15,22 11,13 2,9 22,2"></polygon>
+            </svg>
+          </button>
+        </div>
+      </div>
+    
+      <!-- Launcher -->
+      <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open chatbot">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+      </button>
+    </div>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>

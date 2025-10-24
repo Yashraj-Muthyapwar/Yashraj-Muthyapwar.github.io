@@ -11,6 +11,8 @@ Portfolio/
 │   └── styles.css      # All CSS styles and animations
 ├── js/
 │   └── main.js         # JavaScript functionality
+├── sitemap.xml
+├── robots.txt
 └── README.md           # This file
 ```
 

@@ -49,7 +49,7 @@ Portfolio/
 
 ## 📜 License
 
-**Copyright © 2025 Yashraj Muthyapwar. All Rights Reserved.** See the [LICENSE](LICENSE) file for more details.
+**Copyright © 2025 Yashraj Muthyapwar. All Rights Reserved.** See the [LICENSE](LICENSE.txt) file for more details.
 
 **Made with ♥ by Yashraj Muthyapwar** <br>
 *Driven by data, inspired by insights.*

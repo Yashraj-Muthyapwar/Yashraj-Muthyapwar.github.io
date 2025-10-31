@@ -49,21 +49,7 @@ Portfolio/
 
 ## 📜 License
 
-**Copyright © 2025 Yashraj Muthyapwar. All Rights Reserved.**
-
-This portfolio is proprietary and confidential. Unauthorized copying, modification, distribution, or use of this code, via any medium, is strictly prohibited without explicit written permission from the copyright holder.
-
-### Usage Permissions
-- ✅ View the live website
-- ✅ Fork for personal learning purposes only
-- ❌ Use in commercial projects
-- ❌ Redistribute or publish
-- ❌ Use as a template for your own portfolio
-- ❌ Remove copyright notices
-
-For licensing inquiries, [contact](mailto:muthyapwaryashraj@gmail.com)
-
----
+**Copyright © 2025 Yashraj Muthyapwar. All Rights Reserved.** See the [LICENSE](LICENSE) file for more details.
 
 **Made with ♥ by Yashraj Muthyapwar** <br>
 *Driven by data, inspired by insights.*

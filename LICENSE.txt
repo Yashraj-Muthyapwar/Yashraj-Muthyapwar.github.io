@@ -1,0 +1,14 @@
+Copyright (c) 2025 Yashraj Muthyapwar
+
+This code is provided for VIEWING PURPOSES ONLY.
+
+You may:
+- View the source code
+- Reference it in discussions
+
+You may NOT:
+- Use this code in any project (personal or commercial)
+- Copy, modify, or distribute this code
+- Create derivative works
+
+For licensing inquiries, contact: muthyapwaryashraj@gmail.com

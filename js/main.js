@@ -97,7 +97,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Lazy pop-in animation for main sections on scroll with staggered delay
 const lazySections = document.querySelectorAll(
-    '.section#about, .section#skills, .section#experience, .section#education, .section#projects, .section#contact, .section#terminal'
+    '.section#about, .section#skills, .section#experience, .section#education, .section#projects, .section#certifications, .section#contact, .section#terminal'
 );
 
 // Add initial transform and opacity for smooth animation
@@ -436,13 +436,45 @@ const portfolioData = {
             period: '2019 - 2023',
             gpa: '3.56/4.0'
         }
+    },
+    certifications: {
+        'aws-ml': {
+            name: 'AWS Certified Machine Learning Engineer - Associate',
+            issuer: 'Amazon Web Services',
+            year: '2024'
+        },
+        'mongodb': {
+            name: 'MongoDB Associate Developer',
+            issuer: 'MongoDB University',
+            year: '2024'
+        },
+        'snowflake': {
+            name: 'Snowflake Data Engineering',
+            issuer: 'Snowflake - Coursera',
+            year: '2024'
+        },
+        'deeplearning': {
+            name: 'Deep Learning Specialization',
+            issuer: 'DeepLearning.AI',
+            year: '2024'
+        },
+        'ibm': {
+            name: 'IBM Data Science Professional Certificate',
+            issuer: 'IBM - Coursera',
+            year: '2024'
+        },
+        'nlp': {
+            name: 'Natural Language Processing Specialization Certificate',
+            issuer: 'DeepLearning.AI',
+            year: '2024'
+        }
     }
 };
 
 // Terminal commands
 const terminalCommands = {
     help: () => {
-        return `Available commands: <span class="terminal-command">help</span> (show this help message), <span class="terminal-command">whoami</span> (display user information), <span class="terminal-command">ls</span> (list available directories), <span class="terminal-command">cat</span> <span class="terminal-arg">[file]</span> (display file contents), <span class="terminal-command">cd</span> <span class="terminal-arg">[dir]</span> (change directory), <span class="terminal-command">pwd</span> (print working directory), <span class="terminal-command">tree</span> (show directory structure), <span class="terminal-command">find</span> <span class="terminal-arg">[pattern]</span> (search for files/content), <span class="terminal-command">date</span> (show current date and time), <span class="terminal-command">echo</span> <span class="terminal-arg">[text]</span> (display text), <span class="terminal-command">man</span> <span class="terminal-arg">[cmd]</span> (show manual page), <span class="terminal-command">skills</span> (show technical skills), <span class="terminal-command">projects</span> (list projects), <span class="terminal-command">experience</span> (show work experience), <span class="terminal-command">education</span> (show education background), <span class="terminal-command">contact</span> (show contact information), <span class="terminal-command">clear</span> (clear terminal), <span class="terminal-command">exit</span> (close terminal).`;
+        return `Available commands: <span class="terminal-command">help</span> (show this help message), <span class="terminal-command">whoami</span> (display user information), <span class="terminal-command">ls</span> (list available directories), <span class="terminal-command">cat</span> <span class="terminal-arg">[file]</span> (display file contents), <span class="terminal-command">cd</span> <span class="terminal-arg">[dir]</span> (change directory), <span class="terminal-command">pwd</span> (print working directory), <span class="terminal-command">tree</span> (show directory structure), <span class="terminal-command">find</span> <span class="terminal-arg">[pattern]</span> (search for files/content), <span class="terminal-command">date</span> (show current date and time), <span class="terminal-command">echo</span> <span class="terminal-arg">[text]</span> (display text), <span class="terminal-command">man</span> <span class="terminal-arg">[cmd]</span> (show manual page), <span class="terminal-command">skills</span> (show technical skills), <span class="terminal-command">projects</span> (list projects), <span class="terminal-command">experience</span> (show work experience), <span class="terminal-command">education</span> (show education background), <span class="terminal-command">certifications</span> (show certifications), <span class="terminal-command">contact</span> (show contact information), <span class="terminal-command">clear</span> (clear terminal), <span class="terminal-command">exit</span> (close terminal).`;
     },
     
     whoami: () => {
@@ -657,6 +689,29 @@ ${portfolioData.skills.cloud.map(skill => `  • ${skill}`).join('\n')}`;
 🎓 ${portfolioData.education.btech.degree}
    ${portfolioData.education.btech.school} (${portfolioData.education.btech.period})
    GPA: ${portfolioData.education.btech.gpa}`;
+    },
+    
+    certifications: () => {
+        return `Professional Certifications
+===========================
+
+🏆 ${portfolioData.certifications['aws-ml'].name}
+   ${portfolioData.certifications['aws-ml'].issuer}
+
+🏆 ${portfolioData.certifications.mongodb.name}
+   ${portfolioData.certifications.mongodb.issuer}
+
+🏆 ${portfolioData.certifications.snowflake.name}
+   ${portfolioData.certifications.snowflake.issuer}
+
+🏆 ${portfolioData.certifications.deeplearning.name}
+   ${portfolioData.certifications.deeplearning.issuer}
+
+🏆 ${portfolioData.certifications.ibm.name}
+   ${portfolioData.certifications.ibm.issuer}
+
+🏆 ${portfolioData.certifications.nlp.name}
+   ${portfolioData.certifications.nlp.issuer}`;
     },
     
     contact: () => {
@@ -925,6 +980,7 @@ function getCommandDescription(cmd) {
         'projects': 'List portfolio projects',
         'experience': 'Show work experience',
         'education': 'Show education background',
+        'certifications': 'Show professional certifications',
         'contact': 'Show contact information',
         'clear': 'Clear terminal screen',
         'exit': 'Exit terminal'

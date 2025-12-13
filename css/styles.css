@@ -1,7 +1,3 @@
-/* Add font-display for faster text rendering */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300..800&display=swap');
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
@@ -424,36 +420,89 @@ code {
 .muted { color: color-mix(in oklab, var(--fg), transparent 45%); }
 
 .tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
-.tag { font-size:13px; padding:6px 10px; border-radius:999px; background:var(--muted); color:var(--muted-fg); border:1px solid var(--border); }
-.tag:hover { background: var(--card-hover); }
+.tag { 
+    font-size:13px; 
+    font-weight:500;
+    padding:6px 10px; 
+    border-radius:999px; 
+    background:var(--muted); 
+    color:var(--muted-fg); 
+    border:1px solid var(--border); 
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.1s ease, transform 0.3s ease, box-shadow 0.2s ease;
+}
+.tag:hover { 
+    background: var(--card-hover); 
+    color: var(--fg);
+    transform: translateY(-2px) scale(1.15);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+.tag-with-icon { 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 6px; 
+}
+.tag-icon { 
+    flex-shrink: 0; 
+    vertical-align: middle; 
+    width: 14px; 
+    height: 14px; 
+    object-fit: contain; 
+    transition: opacity 0.3s ease, transform 0.2s ease;
+}
+.tag:hover .tag-icon {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+.tag-icon svg { 
+    width: 100%; 
+    height: 100%; 
+    display: block;
+}
+/* Ensure SVG icons with black fill adapt to theme */
+[data-theme="light"] .tag-icon svg path[fill="#000000"],
+[data-theme="light"] .tag-icon svg path[fill="#000"],
+[data-theme="light"] .tag-icon svg[fill="#000000"],
+[data-theme="light"] .tag-icon svg[fill="#000"] {
+    fill: #1a1a1a;
+}
+[data-theme="dark"] .tag-icon svg path[fill="#000000"],
+[data-theme="dark"] .tag-icon svg path[fill="#000"],
+[data-theme="dark"] .tag-icon svg[fill="#000000"],
+[data-theme="dark"] .tag-icon svg[fill="#000"] {
+    fill: #e0e0e0;
+}
+/* Handle icons with currentColor */
+.tag-icon svg[fill="currentColor"] {
+    fill: var(--muted-fg);
+}
+.tag:hover .tag-icon svg[fill="currentColor"] {
+    fill: var(--fg);
+}
+.tag-icon img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; 
+    filter: none !important;
+    transition: opacity 0.3s ease;
+}
+/* Improve icon visibility in light theme */
+[data-theme="light"] .tag-icon img {
+    opacity: 0.9;
+}
+[data-theme="dark"] .tag-icon img {
+    opacity: 1;
+}
+/* Enhance contrast for kicker in both themes */
+.kicker { 
+    font-size:12px; 
+    text-transform:uppercase; 
+    letter-spacing:.06em; 
+    color: color-mix(in oklab, var(--fg), transparent 40%);
+    font-weight: 500;
+    margin-bottom: 4px;
+}
 
 .project-links { display:flex; gap:12px; align-items:center; justify-content:flex-end; }
-
-.section#projects .card { 
-  display: flex;                /* make card a column container */
-  flex-direction: column;
-}
-
-.section#projects .card .muted {
-  line-height: 1.6;
-  /* multi-line clamp (works across browsers) */
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;                /* Firefox */
-  overflow: hidden;
-  text-overflow: ellipsis;
-  block-overflow: ellipsis;     /* Firefox */
-  min-height: calc(1.6em * 3);  /* keeps 3-line space even if shorter */
-  margin-bottom: 12px;
-}
-
-/* push tags/links row to the bottom of each card */
-.section#projects .project-footer {
-  margin-top: auto;             /* replaces fixed margin */
-  padding-top: 12px;
-}
-
 
 /* Container for tags and project links alignment */
 .project-footer { 
@@ -470,6 +519,169 @@ code {
 .project-footer .project-links { 
     margin-top: 0; 
     flex-shrink: 0; 
+}
+
+/* Certifications */
+.certification-header {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+}
+
+.certification-badge {
+    flex-shrink: 0;
+    width: 90px;
+    height: 90px;
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--muted);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+}
+
+.card:hover .certification-badge {
+    transform: scale(1.08);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    border-color: var(--accent);
+}
+
+[data-theme="dark"] .card:hover .certification-badge {
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="light"] .card:hover .certification-badge {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.badge-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 12px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    filter: brightness(1) contrast(1);
+}
+
+[data-theme="light"] .badge-image {
+    filter: brightness(0.95) contrast(1.1);
+}
+
+.card:hover .badge-image {
+    transform: scale(1.05);
+}
+
+/* AWS Badge specific styling */
+.certification-badge img[alt*="AWS"] {
+    padding: 14px;
+    background: linear-gradient(135deg, #f7f7f7 0%, #ffffff 100%);
+}
+
+[data-theme="dark"] .certification-badge img[alt*="AWS"] {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+}
+
+/* MongoDB Badge specific styling */
+.certification-badge img[alt*="MongoDB"] {
+    padding: 10px;
+    background: linear-gradient(135deg, #f0f9f4 0%, #ffffff 100%);
+}
+
+[data-theme="dark"] .certification-badge img[alt*="MongoDB"] {
+    background: linear-gradient(135deg, #0d2818 0%, #1a2e21 100%);
+}
+
+.certification-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.certification-info .kicker {
+    margin-bottom: 6px;
+}
+
+.certification-info .title {
+    line-height: 1.4;
+    margin-bottom: 6px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.certification-info .muted {
+    font-size: 13px;
+    opacity: 0.75;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Certification description text */
+.card .certification-header + p.muted {
+    font-size: 14px;
+    line-height: 1.65;
+    color: color-mix(in oklab, var(--fg), transparent 45%);
+    margin-top: 14px;
+    margin-bottom: 0;
+}
+
+.certification-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 16px;
+    gap: 12px;
+}
+
+.certification-footer .tags {
+    margin-top: 0;
+    flex: 1;
+}
+
+.certification-footer .project-links {
+    margin-top: 0;
+    flex-shrink: 0;
+}
+
+/* Enhanced certification card styling */
+.card .certification-header {
+    transition: border-color 0.3s ease;
+}
+
+.card:hover .certification-header {
+    border-color: var(--accent);
+}
+
+@media (max-width: 720px) {
+    .certification-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-bottom: 16px;
+    }
+    
+    .certification-badge {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .certification-info {
+        width: 100%;
+    }
+    
+    .certification-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
 }
 .github-link {
     display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%;

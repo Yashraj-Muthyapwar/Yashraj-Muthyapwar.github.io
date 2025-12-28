@@ -376,7 +376,7 @@ code {
 
 .sidebar-links { display:flex; gap:8px; flex-wrap:wrap; }
 
-.section { padding: clamp(28px, 5vw, 56px) 0; opacity: 1; }
+.section { padding: clamp(28px, 5vw, 56px) 0; opacity: 1; overflow: visible; }
 .section#contact { padding-bottom: 0 !important; min-height: auto; } /* helps selection at bottom */
 .section#terminal { 
     padding: clamp(28px, 5vw, 56px) 0; 
@@ -404,9 +404,9 @@ code {
 
 .section-title { font-size: clamp(18px, 2.6vw, 24px); margin: 0 0 18px; font-weight:700; letter-spacing:-0.01em; }
 
-.cards { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+.cards { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; overflow: visible; }
 .card {
-    grid-column: span 12; border:1px solid var(--border); border-radius:14px; padding:18px; background:var(--bg); color:var(--fg);
+    grid-column: span 12; border:1px solid var(--border); border-radius:14px; padding:18px; background:var(--bg); color:var(--fg); overflow: visible;
 }
 .card:hover { background: var(--card-hover); }
 @media (min-width: 720px) {
@@ -659,6 +659,7 @@ code {
 /* Certification PDF Preview on Hover */
 .mongodb-cert-card {
     position: relative;
+    overflow: visible;
 }
 
 .cert-preview-container {
@@ -719,6 +720,21 @@ code {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     -ms-overflow-style: none;
+}
+
+.cert-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    border: none;
+    min-height: 0;
+    flex: 1;
+    transform: scale(1.45);
+    transform-origin: center center;
 }
 
 .cert-preview iframe::-webkit-scrollbar {

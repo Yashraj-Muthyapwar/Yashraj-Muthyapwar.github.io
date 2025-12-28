@@ -579,12 +579,17 @@ code {
 
 /* AWS Badge specific styling */
 .certification-badge img[alt*="AWS"] {
-    padding: 14px;
+    padding: 8px;
     background: linear-gradient(135deg, #f7f7f7 0%, #ffffff 100%);
+    transform: scale(1.15);
 }
 
 [data-theme="dark"] .certification-badge img[alt*="AWS"] {
     background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+}
+
+.card:hover .certification-badge img[alt*="AWS"] {
+    transform: scale(1.2);
 }
 
 /* MongoDB Badge specific styling */
@@ -649,6 +654,163 @@ code {
 .certification-footer .project-links {
     margin-top: 0;
     flex-shrink: 0;
+}
+
+/* Certification PDF Preview on Hover */
+.mongodb-cert-card {
+    position: relative;
+}
+
+.cert-preview-container {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px) scale(0.95);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s cubic-bezier(.47,.47,.42,1), 
+                visibility 0.25s cubic-bezier(.47,.47,.42,1),
+                transform 0.25s cubic-bezier(.47,.47,.42,1);
+    z-index: 1000;
+}
+
+.mongodb-cert-card:hover .cert-preview-container {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0) scale(1);
+}
+
+.cert-preview {
+    width: 350px;
+    height: 330px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    display: flex;
+    flex-direction: column;
+    clip-path: inset(0 0 0 0);
+}
+
+[data-theme="light"] .cert-preview {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.cert-preview iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    line-height: 0;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden !important;
+    pointer-events: none;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.cert-preview iframe::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* Remove default PDF viewer margins and spacing */
+.cert-preview iframe[src*=".pdf"] {
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: block;
+    overflow: hidden !important;
+}
+
+/* Ensure PDF content fits without scrollbars in all browsers */
+.cert-preview object,
+.cert-preview embed {
+    width: 100%;
+    height: 100%;
+    border: none;
+    overflow: hidden;
+    display: block;
+}
+
+/* Arrow pointing to the card */
+.cert-preview-container::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid var(--border);
+    z-index: 2;
+}
+
+.cert-preview-container::after {
+    content: '';
+    position: absolute;
+    top: calc(100% - 1px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-top: 9px solid var(--bg);
+    z-index: 3;
+}
+
+[data-theme="light"] .cert-preview-container::before {
+    border-top-color: var(--border);
+}
+
+[data-theme="light"] .cert-preview-container::after {
+    border-top-color: var(--bg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cert-preview {
+        width: 300px;
+        height: 285px;
+    }
+    
+    .cert-preview-container {
+        bottom: calc(100% + 8px);
+    }
+}
+
+@media (max-width: 480px) {
+    .cert-preview {
+        width: 260px;
+        height: 245px;
+    }
+    
+    .cert-preview-container {
+        bottom: calc(100% + 6px);
+    }
+}
+
+/* Prevent hover on touch devices */
+@media (hover: none) {
+    .cert-preview-container {
+        display: none;
+    }
 }
 
 /* Enhanced certification card styling */

@@ -1037,3 +1037,23 @@ const terminalObserver = new IntersectionObserver((entries) => {
 if (terminalSection) {
     terminalObserver.observe(terminalSection);
 }
+
+// MongoDB Certification PDF Preview on Hover
+const mongodbCertCard = document.querySelector('.mongodb-cert-card');
+if (mongodbCertCard) {
+    const certPreview = mongodbCertCard.querySelector('.cert-preview iframe');
+    const pdfPath = mongodbCertCard.getAttribute('data-cert-pdf');
+    
+    // Load PDF every time mouse enters the card
+    mongodbCertCard.addEventListener('mouseenter', () => {
+        if (certPreview && pdfPath) {
+            // Always reload with a fresh timestamp to prevent caching
+            const timestamp = new Date().getTime();
+            const randomId = Math.random().toString(36).substring(7);
+            // Use view parameters that work consistently across Chrome and Edge
+            // FitH fits horizontally, zoom 115% to crop bottom whitespace
+            const pdfUrl = pdfPath + '#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=115&page=1&t=' + timestamp + '&r=' + randomId;
+            certPreview.src = pdfUrl;
+        }
+    });
+}

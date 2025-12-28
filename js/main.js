@@ -1038,22 +1038,47 @@ if (terminalSection) {
     terminalObserver.observe(terminalSection);
 }
 
-// MongoDB Certification PDF Preview on Hover
-const mongodbCertCard = document.querySelector('.mongodb-cert-card');
-if (mongodbCertCard) {
-    const certPreview = mongodbCertCard.querySelector('.cert-preview iframe');
-    const pdfPath = mongodbCertCard.getAttribute('data-cert-pdf');
+// Certification Preview on Hover (handles both MongoDB PDF and AWS image)
+function initCertificationPreviews() {
+    const certCards = document.querySelectorAll('.mongodb-cert-card');
+    if (certCards.length === 0) return;
     
-    // Load PDF every time mouse enters the card
-    mongodbCertCard.addEventListener('mouseenter', () => {
-        if (certPreview && pdfPath) {
-            // Always reload with a fresh timestamp to prevent caching
-            const timestamp = new Date().getTime();
-            const randomId = Math.random().toString(36).substring(7);
-            // Use view parameters that work consistently across Chrome and Edge
-            // FitH fits horizontally, zoom 115% to crop bottom whitespace
-            const pdfUrl = pdfPath + '#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=115&page=1&t=' + timestamp + '&r=' + randomId;
-            certPreview.src = pdfUrl;
+    certCards.forEach(certCard => {
+        const certPreview = certCard.querySelector('.cert-preview');
+        if (!certPreview) return;
+        
+        // Check if it's a PDF preview (iframe) or image preview
+        const iframe = certPreview.querySelector('iframe');
+        const img = certPreview.querySelector('img');
+        const pdfPath = certCard.getAttribute('data-cert-pdf');
+        
+        if (iframe && pdfPath) {
+            // MongoDB PDF Preview - load PDF on hover
+            certCard.addEventListener('mouseenter', () => {
+                // Always reload with a fresh timestamp to prevent caching
+                const timestamp = new Date().getTime();
+                const randomId = Math.random().toString(36).substring(7);
+                // Use view parameters that work consistently across Chrome and Edge
+                // FitH fits horizontally, zoom 115% to crop bottom whitespace
+                const pdfUrl = pdfPath + '#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=115&page=1&t=' + timestamp + '&r=' + randomId;
+                iframe.src = pdfUrl;
+            });
+        } else if (img) {
+            // AWS Image Preview - image is already loaded, hover effect handled by CSS
+            // Ensure image loads properly
+            img.addEventListener('error', () => {
+                console.error('Failed to load certification image:', img.src);
+            });
+            img.addEventListener('load', () => {
+                console.log('Certification image loaded successfully:', img.src);
+            });
         }
     });
+}
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCertificationPreviews);
+} else {
+    initCertificationPreviews();
 }
